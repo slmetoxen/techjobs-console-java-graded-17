@@ -1,4 +1,7 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 /**
  * Created by LaunchCode
@@ -58,11 +61,11 @@ public class TechJobs {
                 System.out.println("\nSearch term:");
                 String searchTerm = in.nextLine();
 
-                /* I'm calling findByValue here because this is where the search for "All" begins and searchTerm is used? */
+/* I'm calling findByValue here because this is where the search for "All" begins and searchTerm is used? */
                 /* JobData jobDetails = new JobData();
                    jobDetails.findByValue();
 */
-                //          JobData.findByValue();
+      //          JobData.findByValue();
 
                 if (searchField.equals("all")) {
                     printJobs(JobData.findByValue(searchTerm));
@@ -129,22 +132,31 @@ public class TechJobs {
         for (Map<String, String> JobData : someJobs) {
             System.out.println("\n*****");
             for (Map.Entry<String, String> columnChoices : JobData.entrySet()) {
-                if (!Objects.equals(columnChoices.getKey(), columnChoices.getValue())) {
-                    System.out.print("No Results");
-                } else {
-                    System.out.println(columnChoices.getKey() + ": " + columnChoices.getValue());
-                }
-
-                System.out.println("*****");
+                System.out.println(columnChoices.getKey() + ": " + columnChoices.getValue());
             }
+            System.out.println("*****");
+/* If the searchTerm is not found in jobData columns or values print "No Results"
+*       if (!JobData.containsKey(searchTerm)) {
+        System.out.print("No Results");
+*/
 
         }
-
     }
 }
 
-
-
-
-
-  //
+  //         for (Map<String, String> JobData : someJobs) {
+//            System.out.println("\n*****");
+//            for (Map.Entry<String, String> columnChoices : JobData.entrySet()) {
+//                if (!Objects.equals(columnChoices.getKey(), columnChoices.getValue())) {
+//                    System.out.print("No Results");
+//                } else {
+//                    System.out.println(columnChoices.getKey() + ": " + columnChoices.getValue());
+//                }
+//
+//                System.out.println("*****");
+//            }
+//
+//        }
+//
+//    }
+//}
