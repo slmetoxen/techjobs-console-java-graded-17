@@ -136,11 +136,13 @@ public class TechJobs {
             }
             System.out.println("*****");
 /* If the searchTerm is not found in jobData columns or values print "No Results"
-*       if (!JobData.containsKey(searchTerm)) {
+*       if (!JobData.contains(searchTerm)) {
         System.out.print("No Results");
 */
 
         }
+        if (!JobData.findByColumnAndValue().contains() || JobData.findByValue(searchTerm)))
+            System.out.print("No Results");
     }
 }
 
