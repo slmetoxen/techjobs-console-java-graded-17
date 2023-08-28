@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -10,7 +7,7 @@ public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
@@ -60,6 +57,12 @@ public class TechJobs {
                 // What is their search term?
                 System.out.println("\nSearch term:");
                 String searchTerm = in.nextLine();
+
+                /* I'm calling findByValue here because this is where the search for "All" begins and searchTerm is used? */
+                /* JobData jobDetails = new JobData();
+                   jobDetails.findByValue();
+*/
+                //          JobData.findByValue();
 
                 if (searchField.equals("all")) {
                     printJobs(JobData.findByValue(searchTerm));
@@ -112,14 +115,36 @@ public class TechJobs {
                 validChoice = true;
             }
 
-        } while(!validChoice);
+        } while (!validChoice);
 
         return choiceKeys[choiceIdx];
     }
 
     // Print a list of jobs
+    /* To do this, you’ll need to iterate over an ArrayList (JobData) of jobs. Each job is itself a HashMap. While you can get each of the items out of the HashMap using the known keys (employer, location, etc.), think instead about creating a nested loop to loop over each HashMap. If a new field is added to the job records, this approach will print out the new field without any updates to printJobs.*/
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+
+        //?? I just want to look at list. The first hashMap is a single job in an ArrayList of jobs (JobData)
+        for (Map<String, String> JobData : someJobs) {
+            System.out.println("\n*****");
+            for (Map.Entry<String, String> columnChoices : JobData.entrySet()) {
+                if (!Objects.equals(columnChoices.getKey(), columnChoices.getValue())) {
+                    System.out.print("No Results");
+                } else {
+                    System.out.println(columnChoices.getKey() + ": " + columnChoices.getValue());
+                }
+
+                System.out.println("*****");
+            }
+
+        }
+
     }
 }
+
+
+
+
+
+  //
