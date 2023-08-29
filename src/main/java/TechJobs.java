@@ -121,28 +121,33 @@ public class TechJobs {
         } while (!validChoice);
 
         return choiceKeys[choiceIdx];
+
     }
 
     // Print a list of jobs
     /* To do this, you’ll need to iterate over an ArrayList (JobData) of jobs. Each job is itself a HashMap. While you can get each of the items out of the HashMap using the known keys (employer, location, etc.), think instead about creating a nested loop to loop over each HashMap. If a new field is added to the job records, this approach will print out the new field without any updates to printJobs.*/
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
+        if (someJobs.isEmpty()){
+            System.out.print("No Results");
 
-        //?? I just want to look at list. The first hashMap is a single job in an ArrayList of jobs (JobData)
+            //?? I just want to look at list. The first hashMap is a single job in an ArrayList of jobs (JobData)
+        }
         for (Map<String, String> JobData : someJobs) {
             System.out.println("\n*****");
             for (Map.Entry<String, String> columnChoices : JobData.entrySet()) {
                 System.out.println(columnChoices.getKey() + ": " + columnChoices.getValue());
             }
             System.out.println("*****");
-/* If the searchTerm is not found in jobData columns or values print "No Results"
+/* If the searchTerm is not found in jobData columns or values print "No Results" || •	There are two different methods called when searching with a search term --> findByColumnAndValue (String, String)  and findByValue (String value)
 *       if (!JobData.contains(searchTerm)) {
         System.out.print("No Results");
+        * //     ??   if (!someJobs.contains(JobData.class)); \\  if (someJobs.isEmpty());
+//      System.out.print("No Results");
 */
 
         }
-        if (!JobData.findByColumnAndValue().contains() || JobData.findByValue(searchTerm)))
-            System.out.print("No Results");
+
     }
 }
 
